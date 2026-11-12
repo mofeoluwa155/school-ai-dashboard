@@ -1,0 +1,77 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#101827">
+  <meta name="description" content="StudySprint helps you plan focused study sessions, track tasks and build consistent revision habits.">
+  <title>StudySprint — Make every session count</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Space+Grotesk:wght@500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="/styles.css">
+</head>
+<body>
+  <div class="app-shell">
+    <aside class="sidebar">
+      <a class="brand" href="#" aria-label="StudySprint home"><span class="brand-mark">S</span><span>StudySprint</span></a>
+      <div class="side-label">WORKSPACE</div>
+      <nav class="nav">
+        <a class="nav-link active" href="#overview"><span>▦</span> Overview</a>
+        <a class="nav-link" href="#tasks"><span>☑</span> My tasks</a>
+        <a class="nav-link" href="#focus"><span>◷</span> Focus room</a>
+        <a class="nav-link" href="#notes"><span>▤</span> Quick notes</a>
+      </nav>
+      <div class="sidebar-bottom">
+        <div class="quote-card"><span class="quote-icon">✦</span><p>Small steps every day lead to big results.</p><small>YOUR DAILY REMINDER</small></div>
+        <div class="profile"><div class="avatar">S</div><div><strong>Student</strong><small>Your study space</small></div><span class="profile-dot"></span></div>
+      </div>
+    </aside>
+
+    <main class="main">
+      <header class="topbar">
+        <div class="mobile-brand"><span class="brand-mark">S</span> StudySprint</div>
+        <div class="breadcrumb">Workspace <span>/</span> Overview</div>
+        <div class="top-actions"><span class="today-label" id="todayLabel"></span><button class="icon-button" id="themeToggle" aria-label="Toggle colour theme">◐</button></div>
+      </header>
+
+      <section class="welcome" id="overview">
+        <div><p class="eyebrow">YOUR PERSONAL STUDY SPACE</p><h1>Make today <span>count.</span></h1><p class="welcome-copy">A little progress each day adds up to big results. Let's get moving.</p></div>
+        <div class="welcome-art" aria-hidden="true"><div class="art-orbit orbit-one"></div><div class="art-orbit orbit-two"></div><div class="art-star">✦</div><div class="art-book">✎</div></div>
+      </section>
+
+      <section class="stats-grid" aria-label="Study statistics">
+        <article class="stat-card"><div class="stat-top"><span>Tasks completed</span><span class="stat-icon purple">✓</span></div><strong id="completedCount">0</strong><small>Keep the momentum going</small></article>
+        <article class="stat-card"><div class="stat-top"><span>Tasks remaining</span><span class="stat-icon orange">◷</span></div><strong id="remainingCount">0</strong><small>One step at a time</small></article>
+        <article class="stat-card"><div class="stat-top"><span>Focus minutes</span><span class="stat-icon green">✦</span></div><strong id="focusMinutes">0</strong><small>Total time logged here</small></article>
+        <article class="stat-card"><div class="stat-top"><span>Daily progress</span><span class="stat-icon blue">↗</span></div><strong id="progressPercent">0%</strong><div class="mini-progress"><span id="progressBar"></span></div></article>
+      </section>
+
+      <div class="content-grid">
+        <section class="panel tasks-panel" id="tasks">
+          <div class="panel-heading"><div><p class="eyebrow">STAY ON TRACK</p><h2>Today's tasks</h2></div><span class="task-date" id="taskDate"></span></div>
+          <form id="taskForm" class="task-form"><input id="taskInput" maxlength="90" placeholder="Add a study task..." aria-label="New study task" required><select id="subjectSelect" aria-label="Subject"><option>General</option><option>Mathematics</option><option>English</option><option>Computing</option><option>Biology</option><option>Chemistry</option><option>Physics</option><option>Other</option></select><button class="primary-button" type="submit">+ Add task</button></form>
+          <div class="task-filters"><button class="filter active" data-filter="all">All</button><button class="filter" data-filter="active">To do</button><button class="filter" data-filter="done">Completed</button></div>
+          <div id="taskList" class="task-list"><div class="empty-state">No tasks yet. Add your first task above.</div></div>
+        </section>
+
+        <section class="panel focus-panel" id="focus">
+          <div class="panel-heading"><div><p class="eyebrow">DEEP WORK</p><h2>Focus room</h2></div><span class="live-pill"><i></i> READY</span></div>
+          <p class="focus-description">Give one thing your full attention.</p>
+          <div class="timer-wrap"><svg class="timer-ring" viewBox="0 0 220 220" aria-hidden="true"><circle class="ring-track" cx="110" cy="110" r="96"></circle><circle class="ring-progress" id="timerProgress" cx="110" cy="110" r="96"></circle></svg><div class="timer-center"><strong id="timerDisplay">25:00</strong><span id="timerStatus">READY TO FOCUS</span></div></div>
+          <div class="timer-presets"><button class="preset selected" data-minutes="25">25 min</button><button class="preset" data-minutes="15">15 min</button><button class="preset" data-minutes="5">5 min</button></div>
+          <div class="timer-controls"><button class="primary-button timer-start" id="timerStart">Start focus</button><button class="secondary-button" id="timerReset">Reset</button></div>
+          <p class="timer-tip">Tip: Put your phone away and focus on one task.</p>
+        </section>
+      </div>
+
+      <section class="panel notes-panel" id="notes">
+        <div class="panel-heading"><div><p class="eyebrow">CAPTURE YOUR THOUGHTS</p><h2>Quick notes</h2></div><span class="saved-label" id="savedLabel">Saved on this device</span></div>
+        <textarea id="notesInput" placeholder="Write down a reminder, an idea, or something you want to remember..."></textarea>
+      </section>
+      <footer>Made for focused minds. <span>StudySprint © <span id="year"></span></span></footer>
+    </main>
+  </div>
+  <script src="/app.js"></script>
+</body>
+</html>
